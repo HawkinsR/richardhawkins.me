@@ -36,7 +36,7 @@ jobs:
       with:
         push: true
         context: ./RHMeLanding/
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:${{ github.sha }}, index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:latest
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/rhmelanding:${{ github.sha }}, index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/rhmelanding:latest
         file: ./RHMeLanding/Dockerfile
 
   deploy:
