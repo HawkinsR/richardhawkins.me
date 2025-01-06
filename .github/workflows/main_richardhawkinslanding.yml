@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_93ae12b3ab69466c905e6d1d94c4c88b }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_1528a30b5d32401385acfd5102e35647 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_b53f4a22f35e4ddaaf588eb161658f13 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1528a30b5d32401385acfd5102e35647 }}/hawkinsr/rhmelanding:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'richardhawkinslanding'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6bb8e900796246f6aff3f4dc932f255d }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a0fcb50015014dcd858314b2b958a724 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1528a30b5d32401385acfd5102e35647 }}/hawkinsr/rhmelanding:${{ github.sha }}'
