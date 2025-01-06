@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy container app to Azure Web App - richardhawkinslanding
 
 on:
@@ -30,8 +27,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1528a30b5d32401385acfd5102e35647 }}/hawkinsr/rhmelanding:${{ github.sha }}
-        file: ./Dockerfile
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:${{ github.sha }}
+        file: ./RHMeLanding/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,5 +44,5 @@ jobs:
       with:
         app-name: 'richardhawkinslanding'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a0fcb50015014dcd858314b2b958a724 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1528a30b5d32401385acfd5102e35647 }}/hawkinsr/rhmelanding:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6bb8e900796246f6aff3f4dc932f255d }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_8af1cbdaf22d4909b9e5a33c75d94a8f }}/hawkinsr/rhmelanding:${{ github.sha }}'
